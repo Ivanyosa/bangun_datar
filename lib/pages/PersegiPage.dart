@@ -29,6 +29,7 @@ class PersegiPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 16),
             child: Text("Persegi"),
           ),
+          Text("Persegi merupakan turunan dari segi empat yang mempunyai ciri khusus keempat sisinya sama panjang dan keempat sudutnya siku-siku (90°)."),
           Padding(
 
             padding: const EdgeInsets.all(10.0),
@@ -84,13 +85,22 @@ class PersegiPage extends StatelessWidget {
                 ),
                  ),
               onPressed: (){
-            _persegiController.hitungkeliling();
+            _persegiController.hitungKeliling();
           }, child: Text("Hitung keliling")),
 
         ],
       ),
-          Obx(()=> Text(_persegiController.hasil.value,
-            style: TextStyle(color: Colors.green),)),
+          Obx(
+                () => Text(
+              _persegiController.hasil.value,
+              style: TextStyle(
+                color: _persegiController.isHitungLuas.value
+                    ? Colors.redAccent
+                    : Colors.greenAccent,
+              ),
+            ),
+          ),
+
         ],
       ),
     );

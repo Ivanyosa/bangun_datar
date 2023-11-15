@@ -1,4 +1,7 @@
 import 'package:bangun_datar/pages/PersegiPage.dart';
+import 'package:bangun_datar/pages/PersegiPanjangPage.dart';
+import 'package:bangun_datar/pages/lingkaran_Page.dart';
+import 'package:bangun_datar/pages/segitigaPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +18,7 @@ class HomePage extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Column(
+      body: ListView(
         children: [
           InkWell(
               onTap: () {
@@ -26,9 +29,38 @@ class HomePage extends StatelessWidget {
                   imageAssets: "assets/persegi.webp",
                   title: "persegi"
               )),
+          InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => persegipanjang_page()));
+              },
+              child: Custommenu(
+                  imageAssets: "assets/persegi panjang.png",
+                  title: "persegi panjang"
+
+              )),
+          InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => segitiga_page()));
+              },
+              child: Custommenu(
+                  imageAssets: "assets/segitiga.jpg",
+                  title: "segitiga"
+
+              )),
+          InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LingkaranPage()));
+              },
+              child: Custommenu(
+                  imageAssets: "assets/lingkaran.jpg",
+                  title: "lingkaran"
+
+              )),
           Row(
             children: [
-              Expanded(child: Custommenu(imageAssets: "assets/segitiga.jpg", title: "segitiga")),
               Expanded(child: Custommenu(imageAssets: "assets/segitiga.jpg", title: "segitiga")),
             ],
           ),
@@ -45,7 +77,7 @@ class HomePage extends StatelessWidget {
                   "assets/jajar genjang.webp",
                   height: 115,
                 ),
-                Text("Segitiga"),
+                Text("jajar genjang"),
               ],
             ),
           )
