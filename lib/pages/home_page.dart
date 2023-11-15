@@ -1,3 +1,4 @@
+import 'package:bangun_datar/pages/PersegiPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +17,21 @@ class HomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Custommenu(imageAssets: "assets/persegi.webp", title: "persegi"),
-          Custommenu(imageAssets: "assets/segitiga.jpg", title: "segitiga"),
+          InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PersegiPage()));
+              },
+              child: Custommenu(
+                  imageAssets: "assets/persegi.webp",
+                  title: "persegi"
+              )),
+          Row(
+            children: [
+              Expanded(child: Custommenu(imageAssets: "assets/segitiga.jpg", title: "segitiga")),
+              Expanded(child: Custommenu(imageAssets: "assets/segitiga.jpg", title: "segitiga")),
+            ],
+          ),
           Container(
             margin: EdgeInsets.all(8),
             padding: EdgeInsets.symmetric(
@@ -28,7 +42,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  "assets/segitiga.jpg",
+                  "assets/jajar genjang.webp",
                   height: 115,
                 ),
                 Text("Segitiga"),
@@ -43,8 +57,11 @@ class HomePage extends StatelessWidget {
 
 class Custommenu extends StatelessWidget {
   const Custommenu({
-    super.key, required this.imageAssets, required this.title,
+    super.key,
+    required this.imageAssets,
+    required this.title,
   });
+
   final String imageAssets;
   final String title;
 
